@@ -5,74 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soutenir notre Serveur Minecraft</title>
     <style>
-        /* Styles de base pour un look moderne et sombre (style Minecraft/Gaming) */
+        /* Design global inspiré du thème sombre de Minecraft */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: #1a1a1a;
+            /* Arrière-plan avec un motif de roche/pixel discret */
+            background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.95)), url('https://transparenttextures.com');
+            color: #e0e0e0;
             margin: 0;
             padding: 0;
             text-align: center;
         }
+
+        /* Bannière principale moderne */
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://unsplash.com');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(26, 26, 26, 1)), url('https://unsplash.com');
             background-size: cover;
             background-position: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
+            border-bottom: 4px solid #4a00e0;
         }
-        h1 {
-            color: #5271ff;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+
+        header h1 {
+            color: #00ffff;
+            text-shadow: 2px 2px 8px rgba(0, 255, 255, 0.5);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px;
         }
+
+        /* Boîtes de texte style blocs/interfaces Minecraft */
         .section {
-            background-color: #1e1e1e;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            background-color: #242424;
+            padding: 30px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            border: 2px solid #3a3a3a;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.6), 0 8px 20px rgba(0,0,0,0.7);
             text-align: left;
+            transition: transform 0.2s;
         }
+
+        .section:hover {
+            transform: translateY(-2px);
+            border-color: #4a00e0;
+        }
+
+        /* Titres des sections colorés et nets */
         .section h2 {
-            color: #5271ff;
+            color: #ffaa00; /* Couleur Or classique de Minecraft */
             margin-top: 0;
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #cccccc;
+        }
+
+        strong {
+            color: #ffffff;
+            background-color: #333333;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Liste à puces stylisée */
         ul {
             padding-left: 20px;
-            line-height: 1.6;
+            line-height: 1.8;
         }
+
         li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
         }
+
+        /* Le gros bouton de don style Gaming premium */
         .btn-donation {
             display: inline-block;
-            background-color: #2ecc71;
+            background: linear-gradient(135deg, #11998e, #38ef7d); /* Dégradé vert fluo */
             color: white;
-            padding: 15px 35px;
-            font-size: 1.2rem;
+            padding: 18px 45px;
+            font-size: 1.4rem;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 30px;
-            margin-top: 20px;
-            transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 4px 10px rgba(46, 204, 113, 0.4);
+            border-radius: 50px;
+            margin-top: 25px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(56, 239, 125, 0.4);
+            border: 2px solid rgba(255,255,255,0.1);
         }
+
         .btn-donation:hover {
-            background-color: #27ae60;
-            transform: scale(1.05);
+            background: linear-gradient(135deg, #38ef7d, #11998e);
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 8px 25px rgba(56, 239, 125, 0.6);
         }
+
         footer {
-            margin-top: 5px;
-            padding: 20px;
-            color: #666;
-            font-size: 0.9rem;
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #151515;
+            color: #555;
+            font-size: 0.95rem;
+            border-top: 2px solid #222;
         }
     </style>
 </head>
@@ -80,37 +132,37 @@
 
     <header>
         <h1>Soutenez notre projet de Serveur Minecraft ! 🚀</h1>
-        <p style="font-size: 1.2rem; color: #bbb;">Aidez-nous à bâtir une communauté de 25 joueurs sans aucun lag.</p>
+        <p style="font-size: 1.3rem; color: #aaaaaa; text-shadow: 1px 1px 4px rgba(0,0,0,0.8);">Aidez-nous à bâtir une communauté de 25 joueurs sans aucun lag.</p>
     </header>
 
     <div class="container">
 
-        <!-- Pourquoi ce projet ? -->
+        <!-- Le Projet -->
         <div class="section">
-            <h2>🌟 Le Projet</h2>
+            <h2>🧱 Le Projet</h2>
             <p>Nous lançons un serveur Minecraft unique, conçu pour rassembler une communauté active et soudée. Notre objectif est d'accueillir jusqu'à <strong>25 joueurs en même temps</strong> pour partager des aventures épiques, sans restriction de jeu.</p>
         </div>
 
         <!-- Pourquoi on a besoin d'argent -->
         <div class="section">
-            <h2>⚠️ Pourquoi avons-nous besoin de vous ?</h2>
-            <p>Faire tourner un serveur fluide pour 25 personnes est impossible sur les hébergeurs gratuits classiques (les performances bridées font crash le jeu). Pour vous offrir la meilleure expérience, nous devons louer une machine dédiée performante (RAM et processeur haut de gamme).</p>
+            <h2>❌ Les limites du gratuit</h2>
+            <p>Faire tourner un serveur fluide pour 25 personnes est impossible sur les hébergeurs gratuits classiques. Les performances bridées font crasher le jeu dès qu'on explore la carte. Pour vous offrir la meilleure expérience, nous devons louer une machine dédiée performante (RAM et processeur haut de gamme).</p>
             <ul>
-                <li><strong>Financement de l'hébergement :</strong> Pour payer l'abonnement mensuel de la machine.</li>
-                <li><strong>Stabilité technique :</strong> Un serveur ouvert 24h/24, sans coupure intempestive.</li>
-                <li><strong>Zéro Lag :</strong> Assez de puissance pour que l'exploration et les combats restent fluides pour tout le monde.</li>
+                <li>💎 <strong>Financement de l'hébergement :</strong> Pour payer l'abonnement mensuel de la machine.</li>
+                <li>⚡ <strong>Stabilité technique :</strong> Un serveur ouvert 24h/24, sans coupure intempestive.</li>
+                <li>🔥 <strong>Zéro Lag :</strong> Assez de puissance pour que l'exploration et les combats restent fluides pour tout le monde.</li>
             </ul>
         </div>
 
         <!-- Pourquoi un petit don aide beaucoup -->
         <div class="section">
-            <h2>💡 Pourquoi un petit don fait une grande différence ?</h2>
-            <p>Si chacun d'entre nous donne ne serait-ce que <strong>1€ ou 2€</strong>, nous aurons largement de quoi financer le serveur pour plusieurs mois ! Il n'y a pas de "petit" don, chaque centime compte et va directement dans la location de la machine.</p>
+            <h2>❤️ Chaque centime compte</h2>
+            <p>Si chacun d'entre nous donne ne serait-ce que <strong>1€ ou 2€</strong>, nous aurons largement de quoi financer le serveur pour plusieurs mois ! Il n'y a pas de "petit" don, chaque participation va directement dans la location de la machine.</p>
         </div>
 
         <!-- Bouton d'action -->
-        <p style="font-size: 1.1rem; margin-top: 30px;">Prêt à propulser le serveur vers le sommet ? 👇</p>
-        <a href="METS_TON_LIEN_DE_DON_ICI" target="_blank" class="btn-donation">Soutenir le Projet (Faire un Don) ❤️</a>
+        <p style="font-size: 1.2rem; margin-top: 30px; color: #aaa;">Prêt à propulser le serveur vers le sommet ? 👇</p>
+        <a href="METS_TON_LIEN_DE_DON_ICI" target="_blank" class="btn-donation">Faire un Don ❤️</a>
 
     </div>
 
