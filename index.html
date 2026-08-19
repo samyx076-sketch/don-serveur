@@ -27,7 +27,7 @@
             padding: 20px;
         }
 
-        /* Colonnes de décoration stylisées (Zéro bug d'images) */
+        /* Colonnes de décoration avec les arènes de combat des bonshommes */
         .deco-side {
             width: 220px;
             padding: 25px 10px;
@@ -50,47 +50,100 @@
             font-weight: bold;
         }
 
-        /* Pixel Art CSS : L'Épée en pixel à gauche */
-        .pixel-sword {
-            width: 50px;
-            height: 50px;
-            background: #ff3333;
+        /* --- LE BONHOMME SWORD PVP (GAUCHE) --- */
+        .arena-left {
             position: relative;
-            transform: rotate(-45deg);
-            box-shadow: 0 0 20px #ff3333;
-            margin: 20px 0;
+            width: 100px;
+            height: 120px;
+            margin: 10px 0;
+        }
+        /* Corps du bonhomme gauche */
+        .stickman-sword {
+            position: absolute;
+            left: 20px; bottom: 10px;
+            width: 24px; height: 50px;
+            background: #ff3333;
+            box-shadow: 0 0 15px rgba(255,51,51,0.5), inset 0 0 5px #fff;
             border-radius: 4px;
         }
-        .pixel-sword::before {
+        /* Tête du bonhomme gauche */
+        .stickman-sword::after {
             content: '';
             position: absolute;
-            bottom: -15px; left: -15px;
-            width: 25px; height: 25px;
-            background: #be1717;
-            border-radius: 2px;
+            top: -26px; left: 0;
+            width: 24px; height: 24px;
+            background: #ff6666;
+            border-radius: 4px;
+        }
+        /* L'épée animée qui frappe */
+        .sword-weapon {
+            position: absolute;
+            top: 15px; right: -25px;
+            width: 8px; height: 35px;
+            background: #ffffff;
+            border: 2px solid #555;
+            box-shadow: 0 0 10px #fff;
+            transform-origin: bottom center;
+            animation: attackSword 0.6s linear infinite;
+        }
+        @keyframes attackSword {
+            0%, 100% { transform: rotate(15deg); }
+            50% { transform: rotate(-75deg); }
         }
 
-        /* Pixel Art CSS : Le Crystal à droite */
-        .pixel-crystal {
-            width: 45px;
-            height: 45px;
+        /* --- LE BONHOMME CRYSTAL PVP (DROITE) --- */
+        .arena-right {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 10px 0;
+        }
+        /* Corps du bonhomme droit */
+        .stickman-crystal {
+            position: absolute;
+            left: 10px; bottom: 10px;
+            width: 24px; height: 50px;
+            background: #9b51e0;
+            box-shadow: 0 0 15px rgba(155,81,224,0.5), inset 0 0 5px #fff;
+            border-radius: 4px;
+        }
+        /* Tête du bonhomme droit */
+        .stickman-crystal::after {
+            content: '';
+            position: absolute;
+            top: -26px; left: 0;
+            width: 24px; height: 24px;
+            background: #bb6bd9;
+            border-radius: 4px;
+        }
+        /* Le bâton du mage Crystal */
+        .staff-weapon {
+            position: absolute;
+            top: 5px; right: -15px;
+            width: 6px; height: 40px;
+            background: #2d9cdb;
+            transform: rotate(-20px);
+        }
+        /* Le Crystal de l'End qui flotte et brille à côté */
+        .end-crystal {
+            position: absolute;
+            right: 10px; top: 25px;
+            width: 20px; height: 20px;
             background: #d133ff;
             transform: rotate(45deg);
-            box-shadow: 0 0 25px #d133ff, inset 0 0 15px #fff;
-            margin: 20px 0;
-            animation: floatCrystal 3s ease-in-out infinite;
+            box-shadow: 0 0 20px #d133ff, inset 0 0 8px #fff;
+            animation: floatCrystal 1.5s ease-in-out infinite;
         }
-
         @keyframes floatCrystal {
-            0%, 100% { transform: rotate(45deg) translateY(0px); }
-            50% { transform: rotate(45deg) translateY(-10px); box-shadow: 0 0 35px #d133ff, inset 0 0 15px #fff; }
+            0%, 100% { transform: rotate(45deg) translateY(0px); opacity: 1; }
+            50% { transform: rotate(45deg) translateY(-12px); opacity: 0.6; box-shadow: 0 0 30px #d133ff; }
         }
 
-        /* Couleurs des blocs de déco */
+        /* Couleurs et textes des côtés */
         .side-left h3 { color: #ff3333; text-shadow: 0 0 10px rgba(255, 51, 51, 0.5); }
         .side-right h3 { color: #d133ff; text-shadow: 0 0 10px rgba(209, 51, 255, 0.5); }
 
-        /* Badges d'infos sous la déco */
+        /* Badges sous les animations */
         .badge {
             background-color: #13131a;
             padding: 12px 10px;
@@ -226,10 +279,14 @@
 
     <div class="main-wrapper">
 
-        <!-- CÔTÉ GAUCHE : Thématique Épée -->
+        <!-- CÔTÉ GAUCHE : Animation Combat Épée -->
         <div class="deco-side side-left">
             <h3>⚔️ SWORD PvP</h3>
-            <div class="pixel-sword"></div>
+            <div class="arena-left">
+                <div class="stickman-sword">
+                    <div class="sword-weapon"></div>
+                </div>
+            </div>
             <div class="badge">⚔️ Mode Combat Épée</div>
             <div class="badge">🛡️ Serveur Fluide (20 TPS)</div>
             <div class="badge">🏆 Tournois & Events</div>
@@ -243,40 +300,3 @@
                 <p>Nous lançons un serveur Minecraft unique, axé sur la compétition, la survie en communauté et les affrontements stratégiques. Notre objectif est de faire tenir jusqu'à <strong>50 joueurs en même temps</strong> sur une carte dynamique pour des guerres épiques.</p>
             </div>
 
-            <div class="section">
-                <h2>❌ Les limites du gratuit</h2>
-                <p>Faire tourner un serveur de guerre pour 50 personnes avec du PvP Crystal et des explosions de TNT est totalement impossible sur les hébergeurs gratuits. Dès qu'un combat commence ou que des chunks chargent, le serveur crash. Pour garantir des combats fluides, nous devons louer une machine haut de gamme.</p>
-                <ul>
-                    <li>💎 <strong>Financement de l'hébergement :</strong> Pour payer l'abonnement mensuel du serveur dédié.</li>
-                    <li>⚡ <strong>Stabilité technique :</strong> Un serveur ouvert 24h/24, parfait pour les assauts nocturnes.</li>
-                    <li>🔥 <strong>Zéro Lag en Combat :</strong> Indispensable pour poser ses blocs ou enchaîner les coups rapidement.</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2>❤️ Chaque centime compte</h2>
-                <p>Si chacun d'entre nous donne ne serait-ce que <strong>1€ ou 2€</strong>, nous aurons de quoi payer la machine pour plusieurs mois ! Chaque participation va directement dans l'infrastructure de notre communauté.</p>
-            </div>
-
-            <p style="font-size: 1.2rem; margin-top: 30px; color: #888;">Prêt à propulser le serveur vers le sommet ? 👇</p>
-            <a href="METS_TON_LIEN_DE_DON_ICI" target="_blank" class="btn-donation">Faire un Don au Projet ❤️</a>
-
-        </div>
-
-        <!-- CÔTÉ DROIT : Thématique Crystal -->
-        <div class="deco-side side-right">
-            <h3>🔮 CRYSTAL PvP</h3>
-            <div class="pixel-crystal"></div>
-            <div class="badge">🔮 Meta End-Crystal</div>
-            <div class="badge">💥 Explosions Fluides</div>
-            <div class="badge">⚡ No-Lag Compétitif</div>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>Merci infiniment pour votre soutien. Que la guerre commence !</p>
-    </footer>
-
-</body>
-</html>
