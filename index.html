@@ -17,7 +17,7 @@
             overflow-x: hidden;
         }
 
-        /* Conteneur principal avec la déco bonhommes sur les côtés */
+        /* Conteneur principal */
         .main-wrapper {
             display: flex;
             justify-content: space-between;
@@ -27,18 +27,19 @@
             padding: 20px;
         }
 
-        /* Colonnes de décoration avec les personnages de Minecraft */
+        /* Colonnes de décoration stylisées (Zéro bug d'images) */
         .deco-side {
             width: 220px;
-            padding: 20px 10px;
+            padding: 25px 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
             margin-top: 20px;
-            background-color: rgba(26, 26, 36, 0.4);
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
+            background-color: rgba(26, 26, 36, 0.6);
+            border-radius: 8px;
+            border: 2px solid rgba(255,255,255,0.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .deco-side h3 {
@@ -49,39 +50,60 @@
             font-weight: bold;
         }
 
-        /* Style des images des bonhommes Minecraft */
-        .character-img {
-            width: 140px;
-            height: auto;
-            transition: transform 0.3s ease;
+        /* Pixel Art CSS : L'Épée en pixel à gauche */
+        .pixel-sword {
+            width: 50px;
+            height: 50px;
+            background: #ff3333;
+            position: relative;
+            transform: rotate(-45deg);
+            box-shadow: 0 0 20px #ff3333;
+            margin: 20px 0;
+            border-radius: 4px;
         }
-        
-        .character-img:hover {
-            transform: scale(1.1) rotate(3deg);
+        .pixel-sword::before {
+            content: '';
+            position: absolute;
+            bottom: -15px; left: -15px;
+            width: 25px; height: 25px;
+            background: #be1717;
+            border-radius: 2px;
         }
 
-        /* Côté Gauche : PvP Épée */
+        /* Pixel Art CSS : Le Crystal à droite */
+        .pixel-crystal {
+            width: 45px;
+            height: 45px;
+            background: #d133ff;
+            transform: rotate(45deg);
+            box-shadow: 0 0 25px #d133ff, inset 0 0 15px #fff;
+            margin: 20px 0;
+            animation: floatCrystal 3s ease-in-out infinite;
+        }
+
+        @keyframes floatCrystal {
+            0%, 100% { transform: rotate(45deg) translateY(0px); }
+            50% { transform: rotate(45deg) translateY(-10px); box-shadow: 0 0 35px #d133ff, inset 0 0 15px #fff; }
+        }
+
+        /* Couleurs des blocs de déco */
         .side-left h3 { color: #ff3333; text-shadow: 0 0 10px rgba(255, 51, 51, 0.5); }
-        .side-left .character-img { filter: drop-shadow(0px 8px 15px rgba(255, 51, 51, 0.4)); }
-
-        /* Côté Droite : PvP Crystal */
         .side-right h3 { color: #d133ff; text-shadow: 0 0 10px rgba(209, 51, 255, 0.5); }
-        .side-right .character-img { filter: drop-shadow(0px 8px 15px rgba(209, 51, 255, 0.4)); }
 
-        /* Badges d'infos sous les bonhommes */
+        /* Badges d'infos sous la déco */
         .badge {
-            background-color: #1a1a24;
-            padding: 10px;
+            background-color: #13131a;
+            padding: 12px 10px;
             border-radius: 6px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: bold;
             width: 90%;
             box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-            border: 1px solid #333;
+            border: 1px solid #252530;
             box-sizing: border-box;
         }
-        .side-left .badge { border-left: 4px solid #ff3333; }
-        .side-right .badge { border-left: 4px solid #d133ff; }
+        .side-left .badge { border-left: 4px solid #ff3333; color: #ff9999; }
+        .side-right .badge { border-left: 4px solid #d133ff; color: #e699ff; }
 
         /* Bannière principale */
         header {
@@ -101,7 +123,7 @@
             letter-spacing: 1px;
         }
 
-        /* Zone centrale du texte */
+        /* Zone centrale */
         .container {
             flex: 1;
             max-width: 680px;
@@ -188,7 +210,7 @@
             border-top: 2px solid #151518;
         }
 
-        /* Cache la déco sur petit écran (téléphones) pour pas casser le texte */
+        /* Cache la déco sur petit écran (téléphones) */
         @media (max-width: 950px) {
             .deco-side { display: none; }
             .container { margin: 0; }
@@ -204,15 +226,13 @@
 
     <div class="main-wrapper">
 
-        <!-- CÔTÉ GAUCHE : PvP Épée -->
+        <!-- CÔTÉ GAUCHE : Thématique Épée -->
         <div class="deco-side side-left">
             <h3>⚔️ SWORD PvP</h3>
-            <!-- Personnage 1 Épée -->
-            <img src="https://postimg.co" class="character-img" alt="Minecraft Sword PvP">
-            <div class="badge">⚔️ Tournois Épée & Hache</div>
-            <!-- Personnage 2 Épée -->
-            <img src="https://postimg.co" class="character-img" alt="Minecraft Combat">
-            <div class="badge">🛡️ Pas de lags de Hits</div>
+            <div class="pixel-sword"></div>
+            <div class="badge">⚔️ Mode Combat Épée</div>
+            <div class="badge">🛡️ Serveur Fluide (20 TPS)</div>
+            <div class="badge">🏆 Tournois & Events</div>
         </div>
 
         <!-- ZONE CENTRALE -->
@@ -243,15 +263,13 @@
 
         </div>
 
-        <!-- CÔTÉ DROIT : PvP Crystal -->
+        <!-- CÔTÉ DROIT : Thématique Crystal -->
         <div class="deco-side side-right">
             <h3>🔮 CRYSTAL PvP</h3>
-            <!-- Personnage 1 Crystal -->
-            <img src="https://postimg.co" class="character-img" alt="Minecraft Crystal Armor">
-            <div class="badge">🔮 Meta Crystal PvP explo</div>
-            <!-- Personnage 2 Crystal -->
-            <img src="https://postimg.co" class="character-img" alt="End Crystal Render">
-            <div class="badge">💥 Explosions Fluides (20 TPS)</div>
+            <div class="pixel-crystal"></div>
+            <div class="badge">🔮 Meta End-Crystal</div>
+            <div class="badge">💥 Explosions Fluides</div>
+            <div class="badge">⚡ No-Lag Compétitif</div>
         </div>
 
     </div>
