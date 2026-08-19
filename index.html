@@ -8,86 +8,139 @@
         /* Design global inspiré du thème sombre de Minecraft */
         body {
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            background-color: #121212;
+            background-color: #0f0f12;
             /* Arrière-plan avec motif pixel discret */
-            background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.95)), url('https://transparenttextures.com');
+            background-image: linear-gradient(rgba(15, 15, 18, 0.9), rgba(15, 15, 18, 0.97)), url('https://transparenttextures.com');
             color: #e0e0e0;
             margin: 0;
             padding: 0;
             text-align: center;
+            overflow-x: hidden;
         }
 
-        /* Décoration sur les côtés (Bordures lumineuses Gaming) */
-        html {
-            border-left: 8px solid #4a00e0;
-            border-right: 8px solid #00ffff;
-            box-shadow: inset 15px 0 30px rgba(74, 0, 224, 0.2), inset -15px 0 30px rgba(0, 255, 255, 0.2);
-            min-height: 100%;
+        /* Conteneur principal qui laisse de la place pour la déco sur les côtés */
+        .main-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
         }
+
+        /* Style des colonnes de décoration Minecraft (Côtés gauche et droit) */
+        .deco-side {
+            width: 220px;
+            background-color: rgba(20, 20, 25, 0.7);
+            border: 2px dashed #444;
+            border-radius: 10px;
+            padding: 20px 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            margin-top: 20px;
+        }
+
+        .deco-side h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid;
+        }
+
+        /* Déco Gauche : Épée / Guerre */
+        .side-left {
+            border-color: #ff3333;
+            box-shadow: 0 0 20px rgba(255, 51, 51, 0.15);
+        }
+        .side-left h3 { color: #ff3333; text-shadow: 0 0 8px rgba(255,51,51,0.4); }
+
+        /* Déco Droite : PvP Crystal */
+        .side-right {
+            border-color: #d133ff;
+            box-shadow: 0 0 20px rgba(209, 51, 255, 0.15);
+        }
+        .side-right h3 { color: #d133ff; text-shadow: 0 0 8px rgba(209,51,255,0.4); }
+
+        /* Petits badges/mots clés Minecraft dans les colonnes */
+        .badge {
+            background-color: #151518;
+            padding: 8px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border: 1px solid #333;
+        }
+        .side-left .badge { border-left: 4px solid #ff3333; }
+        .side-right .badge { border-left: 4px solid #d133ff; }
 
         /* Bannière principale moderne */
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(18, 18, 18, 1)), url('https://unsplash.com');
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(15, 15, 18, 1)), url('https://unsplash.com');
             background-size: cover;
             background-position: center;
             padding: 80px 20px;
-            border-bottom: 3px solid #4a00e0;
+            border-bottom: 3px solid #ffaa00;
         }
 
         header h1 {
-            color: #00ffff;
-            text-shadow: 2px 2px 8px rgba(0, 255, 255, 0.5);
+            color: #ffaa00;
+            text-shadow: 2px 2px 10px rgba(255, 170, 0, 0.4);
             font-size: 2.8rem;
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
+        /* Zone centrale du site */
         .container {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 20px;
+            flex: 1;
+            max-width: 750px;
+            margin: 0 20px;
         }
 
         /* Boîtes de texte style blocs/interfaces Minecraft */
         .section {
-            background-color: #1e1e1e;
+            background-color: #1a1a1f;
             padding: 30px;
             border-radius: 8px;
             margin-bottom: 30px;
-            border: 2px solid #2d2d2d;
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.6), 0 8px 25px rgba(0,0,0,0.7);
+            border: 2px solid #2d2d35;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.7), 0 8px 25px rgba(0,0,0,0.8);
             text-align: left;
             transition: all 0.2s ease;
         }
 
         .section:hover {
             transform: translateY(-2px);
-            border-color: #00ffff;
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.6), 0 12px 30px rgba(0, 255, 255, 0.1);
+            border-color: #ffaa00;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.7), 0 12px 30px rgba(255, 170, 0, 0.1);
         }
 
-        /* Titres des sections colorés (Or classique de Minecraft) */
+        /* Titres des sections colorés */
         .section h2 {
-            color: #ffaa00; 
+            color: #ffffff; 
             margin-top: 0;
             font-size: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            border-left: 4px solid #ffaa00;
+            padding-left: 10px;
         }
 
         p {
             font-size: 1.1rem;
             line-height: 1.7;
-            color: #cccccc;
+            color: #aaaaaa;
         }
 
         strong {
             color: #ffffff;
-            background-color: #2d2d2d;
+            background-color: #25252e;
             padding: 2px 6px;
             border-radius: 4px;
-            border: 1px solid #444;
+            border: 1px solid #3e3e4f;
         }
 
         /* Liste à puces stylisée */
@@ -104,34 +157,41 @@
         /* Le gros bouton de don style Gaming premium */
         .btn-donation {
             display: inline-block;
-            background: linear-gradient(135deg, #11998e, #38ef7d); 
+            background: linear-gradient(135deg, #ffaa00, #ff5500); 
             color: white;
             padding: 18px 45px;
             font-size: 1.4rem;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 8px;
             margin-top: 25px;
             margin-bottom: 40px;
             text-transform: uppercase;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(56, 239, 125, 0.4);
+            box-shadow: 0 5px 20px rgba(255, 85, 0, 0.4);
             border: 2px solid rgba(255,255,255,0.1);
         }
 
         .btn-donation:hover {
-            background: linear-gradient(135deg, #38ef7d, #11998e);
+            background: linear-gradient(135deg, #ff5500, #ffaa00);
             transform: scale(1.05) translateY(-3px);
-            box-shadow: 0 8px 25px rgba(56, 239, 125, 0.6);
+            box-shadow: 0 8px 25px rgba(255, 85, 0, 0.6);
         }
 
         footer {
             margin-top: 40px;
             padding: 30px;
-            background-color: #0b0b0b;
-            color: #555;
+            background-color: #08080a;
+            color: #444;
             font-size: 0.95rem;
-            border-top: 2px solid #1a1a1a;
+            border-top: 2px solid #151518;
+        }
+
+        /* Responsive : cache la déco si l'écran est trop petit (sur téléphone) */
+        @media (max-width: 900px) {
+            .deco-side { display: none; }
+            .main-wrapper { padding: 10px; }
+            .container { margin: 0; }
         }
     </style>
 </head>
@@ -139,42 +199,68 @@
 
     <header>
         <h1>Soutenez notre projet de Serveur Minecraft ! 🚀</h1>
-        <p style="font-size: 1.3rem; color: #aaaaaa; text-shadow: 1px 1px 4px rgba(0,0,0,0.8);">Aidez-nous à bâtir une communauté de 50 joueurs sans aucun lag.</p>
+        <p style="font-size: 1.3rem; color: #888899; text-shadow: 1px 1px 4px rgba(0,0,0,0.8);">Aidez-nous à bâtir une communauté de 50 joueurs sans aucun lag.</p>
     </header>
 
-    <div class="container">
+    <!-- Début de la zone avec la déco sur les côtés -->
+    <div class="main-wrapper">
 
-        <!-- Le Projet -->
-        <div class="section">
-            <h2>🧱 Le Projet</h2>
-            <p>Nous lançons un serveur Minecraft unique, conçu pour rassembler une communauté active et soudée. Notre objectif est d'accueillir jusqu'à <strong>50 joueurs en même temps</strong> pour partager des aventures épiques, sans restriction de jeu.</p>
+        <!-- DECO GAUCHE : Côté PvP Épée / SMP Guerre -->
+        <div class="deco-side side-left">
+            <h3>⚔️ SMP GUERRE</h3>
+            <div class="badge">⚔️ PvP Épée Classique</div>
+            <div class="badge">🛡️ Alliances & Trahisons</div>
+            <div class="badge">💥 Pillages de Bases</div>
+            <div class="badge">🔥 Réclame ta Terre</div>
+            <div class="badge">🏆 Événements PvP</div>
         </div>
 
-        <!-- Pourquoi on a besoin d'argent -->
-        <div class="section">
-            <h2>❌ Les limites du gratuit</h2>
-            <p>Faire tourner un serveur fluide pour 50 personnes est totalement impossible sur les hébergeurs gratuits classiques. Les performances bridées font crasher le jeu dès qu'on explore la carte à plusieurs. Pour vous offrir la meilleure expérience, nous devons louer une machine dédiée performante (RAM et processeur haut de gamme).</p>
-            <ul>
-                <li>💎 <strong>Financement de l'hébergement :</strong> Pour payer l'abonnement mensuel de la machine.</li>
-                <li>⚡ <strong>Stabilité technique :</strong> Un serveur ouvert 24h/24, sans coupure intempestive.</li>
-                <li>🔥 <strong>Zéro Lag :</strong> Assez de puissance pour que l'exploration et les combats restent fluides à 50 joueurs simultanés.</li>
-            </ul>
+        <!-- ZONE CENTRALE : Les informations de don -->
+        <div class="container">
+
+            <!-- Le Projet -->
+            <div class="section">
+                <h2>🧱 Le Projet SMP / PvP</h2>
+                <p>Nous lançons un serveur Minecraft unique, axé sur la compétition, la survie en communauté et les affrontements stratégiques. Notre objectif est de faire tenir jusqu'à <strong>50 joueurs en même temps</strong> sur une carte dynamique pour des guerres épiques.</p>
+            </div>
+
+            <!-- Pourquoi on a besoin d'argent -->
+            <div class="section">
+                <h2>❌ Les limites du gratuit</h2>
+                <p>Faire tourner un serveur de guerre pour 50 personnes avec du PvP Crystal et des explosions de TNT est totalement impossible sur les hébergeurs gratuits. Dès qu'un combat commence ou que des chunks chargent, le serveur crash. Pour garantir des combats fluides, nous devons louer une machine haut de gamme.</p>
+                <ul>
+                    <li>💎 <strong>Financement de l'hébergement :</strong> Pour payer l'abonnement mensuel de la machine de guerre.</li>
+                    <li>⚡ <strong>Stabilité technique :</strong> Un serveur ouvert 24h/24, parfait pour les assauts nocturnes.</li>
+                    <li>🔥 <strong>Zéro Lag en Combat :</strong> Indispensable pour poser ses blocs, tirer à l'arc ou faire du pvp rapidement sans téléportation.</li>
+                </ul>
+            </div>
+
+            <!-- Pourquoi un petit don aide beaucoup -->
+            <div class="section">
+                <h2>❤️ Chaque centime compte</h2>
+                <p>Si chacun d'entre nous donne ne serait-ce que <strong>1€ ou 2€</strong>, nous aurons de quoi payer la machine pour plusieurs mois ! Chaque participation va directement dans l'infrastructure de notre communauté.</p>
+            </div>
+
+            <!-- Bouton d'action -->
+            <p style="font-size: 1.2rem; margin-top: 30px; color: #888;">Prêt à propulser le serveur vers le sommet ? 👇</p>
+            <a href="METS_TON_LIEN_DE_DON_ICI" target="_blank" class="btn-donation">Faire un Don au Projet ❤️</a>
+
         </div>
 
-        <!-- Pourquoi un petit don aide beaucoup -->
-        <div class="section">
-            <h2>❤️ Chaque centime compte</h2>
-            <p>Si chacun d'entre nous donne ne serait-ce que <strong>1€ ou 2€</strong>, nous aurons largement de quoi financer le serveur pour plusieurs mois ! Il n'y a pas de "petit" don, chaque participation va directement dans la location de la machine.</p>
+        <!-- DECO DROITE : Côté PvP Crystal -->
+        <div class="deco-side side-right">
+            <h3>🔮 PVP CRYSTAL</h3>
+            <div class="badge">🔮 Meta Crystal PvP</div>
+            <div class="badge">💥 Explosions Fluides</div>
+            <div class="badge">⚡ Optimisation TPS 20/20</div>
+            <div class="badge">🏹 Combats Ultra Rapides</div>
+            <div class="badge">🌌 Nether Fights</div>
         </div>
-
-        <!-- Bouton d'action -->
-        <p style="font-size: 1.2rem; margin-top: 30px; color: #aaa;">Prêt à propulser le serveur vers le sommet ? 👇</p>
-        <a href="METS_TON_LIEN_DE_DON_ICI" target="_blank" class="btn-donation">Faire un Don ❤️</a>
 
     </div>
 
     <footer>
-        <p>Merci infiniment pour votre soutien. Ce serveur est le vôtre !</p>
+        <p>Merci infiniment pour votre soutien. Que la guerre commence !</p>
     </footer>
 
 </body>
